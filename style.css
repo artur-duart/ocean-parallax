@@ -1,16 +1,19 @@
+/* Aqui estamos aplicando um conjunto de propriedades para todos os elementos da página. O padding e o margin são definidos como 0 para remover qualquer espaço extra ao redor dos elementos, enquanto o box-sizing é definido como border-box para que o tamanho total do elemento inclua o preenchimento e a borda. */
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 }
 
-body {  
-	color: #242424;
+/* Essas propriedades se aplicam ao elemento body da página. Aqui estamos definindo a cor do texto, a família da fonte, e as propriedades word-wrap e overflow-wrap são definidas como break-word, o que faz com que as palavras sejam quebradas em caso de necessidade, se o espaço for insuficiente. */
+body {
+	color: #eee;
 	font-family: sans-serif;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 }
 
+/* Essas propriedades se aplicam a todos os títulos de cabeçalho (h1, h2, h3, h4, h5, h6). Aqui estamos definindo a cor do texto e a espessura da fonte. */
 h1,
 h2,
 h3,
@@ -18,67 +21,69 @@ h4,
 h5,
 h6 {
 	font-weight: 900;
-	color: #000;
+	color: #fff;
 }
 
+/* Estamos definindo as propriedades da classe wrapper. A largura do elemento é definida como 100% e a margem superior e inferior é definida como 0, enquanto a margem esquerda e direita são definidas como auto, o que faz com que o elemento fique centralizado horizontalmente na página. */
 .wrapper {
 	width: 100%;
 	margin: 0 auto;
 }
 
-main {
-	display: block;
-	background-color: #fff;
+/* Essas propriedades se aplicam a cada uma das três classes de elementos module--parallax na página. Aqui estamos definindo o fundo desses elementos como uma imagem, onde cada imagem tem sua própria URL. */
+.module--parallax-1 {
+	background-image: url(./img/ocean.jpg);
 }
 
-.container {
-	width: 100%;
-	max-width: 760px;
-	margin: 0 auto;
-	padding: 0 20px;
+.module--parallax-2 {
+	background-image: url(./img/anglerfish.jpeg);
 }
 
-section.module p {
-	margin-bottom: 40px;
+.module--parallax-3 {
+	background-image: url(./img/goblin-shark.jpg);
 }
 
-section.module:last-child {
-	margin-bottom: 0;
-}
-
-section.module h2 {
-	margin-bottom: 40px;
-	font-size: 30px;
-}
-
-section.module.content {
-	padding: 40px 0;
-	background: #ece7d5;
-}
-
-section.module.parallax {
+/* Define algumas propriedades CSS que serão aplicadas ao elemento com a classe 'module--parallax'.
+Define que o elemento deve ser exibido como um flex container com seu eixo principal na vertical, e seu conteúdo é centralizado verticalmente.
+Define a altura do elemento como 100% da altura da viewport (área de visualização do navegador).
+Define a largura do elemento como 100% da largura disponível.
+Define que o elemento deve ter posição relativa em relação ao seu contêiner.
+Define que o conteúdo que exceder os limites do elemento deve ser ocultado.
+Define a posição do fundo da imagem de plano de fundo como central.
+Define que a imagem de plano de fundo não deve ser repetida.
+Define que a imagem de plano de fundo deve permanecer fixa enquanto a página é rolada, criando o efeito de paralaxe.
+Define o tamanho da imagem de plano de fundo para cobrir completamente o elemento.
+*/
+.module--parallax {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	height: 100vh !important;
+	height: 100vh;
 	width: 100%;
-	position: relative;
 	overflow: hidden;
-	background-position: 50% 50%;
+	background-position: center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	background-size: cover;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
+	background-size: cover;
 }
 
-section.module.parallax:after {
+/* Define algumas propriedades CSS que serão aplicadas ao pseudoelemento 'after' do elemento com a classe 'module--parallax'.
+Define o conteúdo do pseudoelemento como vazio.
+Define a altura do pseudoelemento como 100% da altura do elemento com a classe 'module--parallax'.
+Define a largura do pseudoelemento como 100% da largura do elemento com a classe 'module--parallax'.
+Define que o pseudoelemento deve ter posição absoluta em relação ao seu contêiner.
+Define a ordem em que o elemento é empilhado em relação a outros elementos posicionados (eixos z-index).
+Define um gradiente linear de cor preta que vai de 0% a 40% de opacidade na vertical, para criar um efeito de sombreamento na parte inferior do elemento com a classe 'module--parallax'.
+*/
+.module--parallax:after {
 	content: '';
 	height: 100%;
 	width: 100%;
 	position: absolute;
-	z-index: 8;
+	z-index: 0;
 	background: -moz-linear-gradient(
 		to bottom,
 		rgba(0, 0, 0, 0) 0,
@@ -99,33 +104,41 @@ section.module.parallax:after {
 	);
 }
 
-section.module.parallax-1 {
-	background-image: url('https://images.unsplash.com/photo-1464823063530-08f10ed1a2dd?dpr=1&auto=format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=');
-}
-
-section.module.parallax-2 {
-	background-image: url('https://images.unsplash.com/photo-1473181488821-2d23949a045a?dpr=1&auto=compress,format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=');
-}
-
-section.module.parallax-3 {
-	background-image: url('https://images.unsplash.com/photo-1472162314594-eca3c3d90df1?dpr=1&auto=format&fit=crop&w=1500&h=1001&q=80&cs=tinysrgb&crop=');
-}
-
-section.module.parallax h1 {
-	color: #fff;
+.module__title {
 	text-align: center;
 	font-size: 78px;
-	z-index: 50;
+	z-index: 1;
 	text-transform: uppercase;
 }
 
+.module--content {
+	padding: 40px 0;
+	background: #0d2e59;
+}
+
+.container {
+	width: 100%;
+	max-width: 760px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+.container__title {
+	margin-bottom: 40px;
+	font-size: 30px;
+}
+
+.container__text {
+	margin-bottom: 40px;
+}
+
+.container__text:last-child {
+	margin-bottom: 0;
+}
+
 @media all and (max-width: 820px) {
-	section.module h2 {
-		font-size: 32px;
-	}
-	.module h2,
-	p {
-		padding: 0 8px;
+	.module__title {
+		font-size: 36px;
 	}
 
 	.container {
@@ -133,7 +146,12 @@ section.module.parallax h1 {
 		padding: 0;
 	}
 
-	section.module.parallax h1 {
-		font-size: 36px;
+	.container__title {
+		font-size: 32px;
+	}
+
+	.container__title,
+	.container__text {
+		padding: 0 8px;
 	}
 }
